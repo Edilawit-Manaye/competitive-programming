@@ -1,0 +1,15 @@
+# Problem: Two Sum - https://leetcode.com/problems/two-sum/description
+
+func twoSum(nums []int, target int) []int {
+    mapp:=make(map[int]int)
+    for i,val:=range nums{
+       compp:=target - val
+       if idx,found:=mapp[compp];found{
+         return []int{i,idx}
+       }
+       mapp[val]=i
+       }
+       return nil
+       
+}
+    
