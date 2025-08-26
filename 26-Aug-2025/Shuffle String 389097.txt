@@ -1,0 +1,10 @@
+# Problem: Shuffle String - https://leetcode.com/problems/shuffle-string/description/
+
+func restoreString(s string, indices []int) string {
+    strr:=make([]byte,len(s))
+    for i:=0;i<len(s);i++{
+        strr[indices[i]]=s[i]
+    }
+    return string(strr)
+    
+}
