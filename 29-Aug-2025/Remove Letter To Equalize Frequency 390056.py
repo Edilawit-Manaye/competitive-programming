@@ -1,0 +1,24 @@
+# Problem: Remove Letter To Equalize Frequency - https://leetcode.com/problems/remove-letter-to-equalize-frequency/
+
+class Solution:
+    def equalFrequency(self, word: str) -> bool:
+        h = Counter(word)
+        fequCount = Counter(h.values())
+
+        if len(fequCount) == 1:
+            if 1 in fequCount.values() or 1 in fequCount:
+                return True
+            else:
+                return False
+
+        elif len(fequCount) == 2:
+
+            minFreq = min(fequCount.keys())
+            maxFreq = max(fequCount.keys())
+
+            if minFreq == 1 and fequCount[minFreq] == 1:
+                return True
+            if maxFreq - minFreq == 1 and fequCount[maxFreq] == 1:
+                return True
+
+        return False
