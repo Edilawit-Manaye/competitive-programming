@@ -1,0 +1,12 @@
+# Problem: Pass the Pillow - https://leetcode.com/problems/pass-the-pillow/description/
+
+func passThePillow(n int, time int) int {
+	cycleLength := 2 * (n - 1)
+	effectiveTime := time % cycleLength
+
+	if effectiveTime <= n-1 {
+		return effectiveTime + 1
+	} else {
+		return cycleLength - effectiveTime + 1
+	}
+}
