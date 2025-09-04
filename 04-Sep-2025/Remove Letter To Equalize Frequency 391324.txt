@@ -1,0 +1,41 @@
+# Problem: Remove Letter To Equalize Frequency - https://leetcode.com/problems/remove-letter-to-equalize-frequency/
+
+func equalFrequency(word string) bool {
+	freqCount := make(map[rune]int)
+	for _, char := range word {
+		freqCount[char]++
+	}
+
+	freqMap := make(map[int]int)
+	for _, count := range freqCount {
+		freqMap[count]++
+	}
+
+	if len(freqMap) == 1 {
+		for k := range freqMap {
+			if k == 1 || freqMap[k] == 1 {
+				return true
+			}
+		}
+		return false
+	} else if len(freqMap) == 2 {
+		var minFreq, maxFreq int
+		for k := range freqMap {
+			if minFreq == 0 || k < minFreq {
+				minFreq = k
+			}
+			if k > maxFreq {
+				maxFreq = k
+			}
+		}
+
+		if minFreq == 1 && freqMap[minFreq] == 1 {
+			return true
+		}
+		if maxFreq-minFreq == 1 && freqMap[maxFreq] == 1 {
+			return true
+		}
+	}
+
+	return false
+}
