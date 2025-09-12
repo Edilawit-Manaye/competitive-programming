@@ -1,0 +1,17 @@
+# Problem: Transpose Matrix - https://leetcode.com/problems/transpose-matrix/
+
+func transpose(matrix [][]int) [][]int {
+    row := len(matrix)
+    col := len(matrix[0])
+    res := make([][]int, col)
+    for i := range res {
+        res[i] = make([]int, row)
+    }
+    for r := 0; r < row; r++ {
+        for c := 0; c < col; c++ {
+            res[c][r] = matrix[r][c]
+        }
+    }
+    
+    return res
+}
