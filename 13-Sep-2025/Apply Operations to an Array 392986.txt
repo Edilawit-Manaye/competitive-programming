@@ -1,0 +1,24 @@
+# Problem: Apply Operations to an Array - https://leetcode.com/problems/apply-operations-to-an-array/
+
+func applyOperations(nums []int) []int {
+    n := len(nums)
+    for i := 0; i < n-1; i++ {
+        if nums[i] == nums[i+1] {
+            nums[i] *= 2
+            nums[i+1] = 0
+        }
+    }
+    myList := []int{}
+    for _, num := range nums {
+        if num != 0 {
+            myList = append(myList, num)
+        }
+    }
+    for _, num := range nums {
+        if num == 0 {
+            myList = append(myList, num)
+        }
+    }
+
+    return myList
+}
