@@ -1,0 +1,13 @@
+# Problem: Best Time to Buy and Sell Stock with Transaction Fee - https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/
+
+class Solution:
+    def maxProfit(self, prices: List[int], fee: int) -> int:
+        n = len(prices)
+        hold = [0] * n
+        hold[0] = -prices[0]
+        free = [0] * n
+        for i in range(1, n):
+            hold[i] = max(hold[i - 1], free[i - 1] - prices[i])
+            free[i] = max(free[i - 1], hold[i - 1] + prices[i] - fee)
+     
+        return max(hold[-1], free[-1])
