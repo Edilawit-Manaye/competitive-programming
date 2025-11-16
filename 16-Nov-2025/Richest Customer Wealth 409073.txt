@@ -1,0 +1,16 @@
+# Problem: Richest Customer Wealth - https://leetcode.com/problems/richest-customer-wealth/description/
+
+func maximumWealth(accounts [][]int) int {
+    maxxWelth:=0
+    for _,index:=range accounts{
+        cur:=0
+        for _ ,x:=range(index){
+            cur=cur + x
+        }
+        if cur>maxxWelth{
+            maxxWelth=cur
+        }
+    }
+    return maxxWelth
+}
+    
